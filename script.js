@@ -29,3 +29,7 @@ const countdown = () => {
 };
 setInterval(countdown, 1000);
 window.onload = countdown;
+
+document.querySelector(".menu-toggle").addEventListener("click", () => {
+  document.body.classList.toggle("menu-open");
+});
