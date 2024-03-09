@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 });
 
 const countdown = () => {
-  const eventDate = new Date("March 8, 2024 00:00:00").getTime();
+  const eventDate = new Date("March 8, 2025 00:00:00").getTime();
   const currentDate = new Date().getTime();
   const distance = eventDate - currentDate;
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
