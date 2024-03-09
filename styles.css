@@ -1,7 +1,7 @@
 :root {
   --branding-color: #c839ba;
   --alternative-color: #3b8ee7;
-  --third-color: #19a527;
+  --third-color: #296392;
   --secondary-color: linear-gradient(
     to bottom right,
     #e41181,
@@ -18,18 +18,18 @@
 
 html,
 body {
-  max-width: 100%;
-  height: 100%;
+  margin: 0;
+  padding: 0 40px;
+  background: #f1f5ff;
 }
 
 main {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  background: #f1f5ff;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding: 40px;
 }
+
 #banner {
   max-width: 100%;
   height: auto;
@@ -37,32 +37,28 @@ main {
 
 #banner img {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  background-size: cover;
-  position: relative;
-  border-radius: 8px;
+  margin: 0 auto;
   max-width: 100%;
   height: auto;
+  border-radius: 8px;
 }
 
 header {
-  height: auto;
-  width: 100%;
-  padding: 50px 0;
+  padding: 20px 0;
   text-align: center;
   position: relative;
   background: #f1f5ff;
-  background-size: cover;
+  width: 100%;
+  height: auto;
 }
 
 .menu-toggle {
-  display: none; /* Hide the button by default on larger screens */
+  display: none;
   background: none;
   border: none;
   cursor: pointer;
   padding: 10px;
-  z-index: 11; /* Ensure the button is on top of the menu */
+  z-index: 11;
 }
 
 .bar {
@@ -84,10 +80,10 @@ nav {
 }
 
 nav h1 {
-  margin-top: 0;
+  margin: 0;
   font-size: 4rem;
   font-weight: 700;
-  line-height: 60px;
+  line-height: 1;
   text-align: center;
   background-attachment: scroll;
   background-clip: text;
@@ -148,9 +144,11 @@ nav li.active {
   display: block;
 }
 
-#events h2 {
+#events h2,
+#resources h2 {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 2rem;
+  font-weight: 600;
 }
 
 #events p {
@@ -181,18 +179,19 @@ nav li.active {
 
 #about h2 {
   font-size: 3rem;
+  font-weight: 600;
   color: #222;
 }
 
 #about p {
-  column-width: auto;
-  column-gap: 1em;
-  line-height: 30px;
+  columns: 2;
+  column-gap: 30px;
+  text-align: left;
 }
 
 h3 {
   color: #2c4a64;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 60px;
   font-size: 44px;
 }
@@ -205,7 +204,7 @@ h3 {
 .clock-container h3 {
   text-align: center;
   font-family: Georgia, "Times New Roman", Times, serif;
-  font-weight: normal;
+  font-weight: 700;
   letter-spacing: 0.125rem;
 }
 
@@ -253,6 +252,7 @@ li span {
   width: 80px;
   height: 80px;
   border-radius: 5px;
+  padding: 20px;
 }
 #days,
 #hours,
@@ -276,91 +276,26 @@ footer {
   padding: 15px;
 }
 
-@media (max-width: 1200px) {
-  /* Adjust header layout */
-  nav {
-    padding: 20px;
-  }
-
-  nav h1 {
-    font-size: 42px;
-    line-height: 40px;
-  }
-
-  nav ul {
-    justify-content: center;
-  }
-
-  nav li {
-    margin: 10px 0;
-    font-size: 14px;
-    text-align: center;
-    margin-left: 15px;
-  }
-
-  /* Adjust banner image */
-  #banner img {
-    height: auto;
-    width: 100%;
-    max-height: 300px;
-    border-radius: 6px;
-    background-size: cover;
-  }
-
-  /* Adjust section spacing */
-  section {
-    padding: 20px;
-  }
-
-  /* Adjust font sizes */
-  h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  p {
-    font-size: 16px;
-  }
-
-  /* Adjust button padding */
-  .btn {
-    padding: 10px 30px;
-    font-size: 14px;
-  }
-
-  /* Adjust countdown font sizes */
-  .countdown > div {
-    width: auto;
-    height: auto;
-    margin: 10px;
-    padding: 10px;
-  }
-
-  li span {
-    font-size: 24px;
-  }
-
-  .countdown:last-of-type {
-    font-size: 12px;
-  }
-}
-
 @media screen and (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    z-index: 11;
+  /* Adjustments for smaller screens (tablets) */
+  html,
+  body {
+    margin: 0;
+    padding: 0;
   }
 
   body.menu-open {
     overflow: hidden;
   }
 
-  body:not(.menu-open) nav ul {
-    transform: translateX(-100%);
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 11;
   }
+
   nav ul {
     position: fixed;
     top: 0;
@@ -368,60 +303,84 @@ footer {
     width: 70%;
     height: 100%;
     gap: 10px;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
     z-index: 10;
   }
 
   nav h1 {
-    font-size: 42px;
-    line-height: 40px;
+    font-size: 2.6rem;
+    line-height: 1;
   }
 
   body.menu-open nav ul {
     transform: translateX(0);
   }
 
-  #events img {
-    max-height: 250px;
+  #banner img {
+    max-width: 100%;
+    max-height: 500px; /* Adjusted for better visibility */
   }
 
-  #events h2 {
+  #events img {
+    max-width: 100%;
+    max-height: 350px; /* Adjusted for better visibility */
+    border-radius: 6px;
+  }
+
+  #about,
+  #events,
+  #resources {
+    margin-top: 0;
+  }
+
+  #about h1,
+  #events h1,
+  #resources h1 {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  #about p,
+  #events p,
+  #resources p {
+    font-size: 1rem;
+  }
+
+  #events h2,
+  #resources h2 {
     font-size: 1.5rem;
   }
 
   .countdown > div {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .countdown:last-of-type {
+    font-size: 10px;
   }
 
   li span {
     font-size: 1.2rem;
   }
+
+  p {
+    font-size: 1rem;
+  }
 }
 
-/* Additional adjustments for smaller screens */
 @media screen and (max-width: 600px) {
+  /* Adjustments for small screens (smartphones) */
   #banner img {
-    max-height: 200px;
-  }
-
-  /* Adjust font sizes */
-  h1 {
-    font-size: 28px;
-    line-height: 32px;
-  }
-
-  h2 {
-    font-size: 20px;
+    max-height: 200px; /* Adjusted for better visibility */
   }
 
   p {
-    font-size: 14px;
+    font-size: 1rem;
   }
 
-  /* Adjust countdown font sizes */
   .countdown > div {
     padding: 8px;
   }
